@@ -1,0 +1,5443 @@
+{
+	"info": {
+		"_postman_id": "042038d8-f2ce-4e30-9244-9d5148ab0fb6",
+		"name": "Ussd_connector_Service_API",
+		"description": "This API is responsible for Quickteller Ussd operations.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28550380"
+	},
+	"item": [
+		{
+			"name": "consumers",
+			"item": [
+				{
+					"name": "userProfile",
+					"item": [
+						{
+							"name": "user Profile Info",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"pm.test(\"User Profile Retrieved Successfully\", () => {\r",
+											"    pm.expect(res.success).to.eql(true)\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Data is not empty\", () => {\r",
+											"    pm.expect(responseBody.sessionData).to.not.be.null;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"09125490124\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/userProfile",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"userProfile"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/userProfile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"userProfile"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/userProfile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"userProfile"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/userProfile",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"userProfile"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "User",
+					"item": [
+						{
+							"name": "update User",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"      pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Account Updated Successfully\",()=>{\r",
+											"      pm.expect(res.success).to.eql(true)\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"//MiddleName\r",
+											"const middleNames = [\"Layi\", \"Adepeko\", \"Alabi\", \"Saida\", \"ololademi\", \"Banky\", \"Ella\", \"Drake\", \"Nicki\",\r",
+											"\"OOOne\"];\r",
+											"const randomIndex3 = Math.floor(Math.random() * middleNames.length);\r",
+											"const randomMiddleName = middleNames[randomIndex3];\r",
+											"pm.environment.set(\"middleName\", randomMiddleName);\r",
+											"\r",
+											"console.log(randomMiddleName)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348074258402\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"firstName\": \"Mobile\",\r\n        \"middleName\": \"{{middleName}}\",\r\n        \"lastName\": \"RegressionAug\",\r\n        \"birthDate\": \"22021994\",\r\n        \"gender\": \"M\",\r\n        \"countryCode\": \"NG\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/user/update",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"user",
+										"update"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get Accounts",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"pm.test(\"AccountNo : \" + res.sessionData.accountNo + \" Retrieved Successfully\", () => {\r",
+											"    pm.expect(res.success).to.eql(true)\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"AccountNo is not empty\", () => {\r",
+											"    pm.expect(res.sessionData.accountNo).to.not.be.null;\r",
+											"    pm.expect(res.sessionData.accountNo).to.not.be.empty;\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348074258402\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/user/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"user",
+										"accounts"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "signup",
+					"item": [
+						{
+							"name": "offline",
+							"item": [
+								{
+									"name": "sign Up User Manual",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var randomNo ='';\r",
+													"const length =8;\r",
+													"const chars = '0123456789'\r",
+													"for (var i = length; i > 0; --i) randomNo += chars[Math.floor(Math.random() * chars.length)];\r",
+													"pm.environment.set(\"random_number\", randomNo);\r",
+													"console.log(randomNo)\r",
+													"//firstname\r",
+													"const firstNames = [\"John\", \"Jane\", \"Michael\", \"Emily\", \"David\", \"Emma\", \"Daniel\", \"Olivia\"];\r",
+													"const randomIndex1 = Math.floor(Math.random() * firstNames.length);\r",
+													"const randomFirstName = firstNames[randomIndex1];\r",
+													"pm.environment.set(\"firstName\", randomFirstName);\r",
+													" \r",
+													"\r",
+													"//lastName\r",
+													"const lastNames = [\"Olivia\", \"Daniel\", \"Jigan\", \"Babanla\", \"BigWiz\", \"David\", \"Michael\", \"Emma\", \"Demola\",\r",
+													"\"Cheng\"];\r",
+													"const randomIndex2 = Math.floor(Math.random() * lastNames.length);\r",
+													"const randomLastName = lastNames[randomIndex2];\r",
+													"pm.environment.set(\"lastName\", randomLastName);\r",
+													" \r",
+													"//MiddleName\r",
+													"const middleNames = [\"Layi\", \"Adepeko\", \"Alabi\", \"Saida\", \"ololademi\", \"Banky\", \"Ella\", \"Drake\", \"Nicki\",\r",
+													"\"OOOne\"];\r",
+													"const randomIndex3 = Math.floor(Math.random() * middleNames.length);\r",
+													"const randomMiddleName = middleNames[randomIndex3];\r",
+													"pm.environment.set(\"middleName\", randomMiddleName);\r",
+													"\r",
+													"console.log(randomFirstName)\r",
+													"console.log(randomLastName) \r",
+													"console.log(randomMiddleName)\r",
+													"\r",
+													"  "
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"User Created Successfully\", () => {\r",
+													"    pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"\r",
+													"\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\");\r",
+													"});\r",
+													"\r",
+													"console.log(res.success)\r",
+													"\r",
+													"// // Parse the request body JSON\r",
+													"// var requestBody = JSON.parse(pm.request.body.raw);\r",
+													"// pm.environment.set(\"newRegisteredMobile\", requestBody.msisdn);\r",
+													"// // Log the value of msisdn\r",
+													"// console.log(\"msisdn:\", requestBody.msisdn);\r",
+													"\r",
+													"\r",
+													"\r",
+													"// Parse the request body JSON\r",
+													"var requestBody = JSON.parse(pm.request.body.raw);\r",
+													"\r",
+													"// Extract the msisdn value from the request body\r",
+													"var msisdn = requestBody.msisdn;\r",
+													"\r",
+													"// Remove the first number from the msisdn\r",
+													"var modifiedMsisdn = msisdn.slice(1);\r",
+													"\r",
+													"// Add \"234\" before the modified msisdn\r",
+													"var newRegisteredMobile = \"234\" + modifiedMsisdn;\r",
+													"\r",
+													"// Set the newRegisteredMobile value in the environment variable\r",
+													"pm.environment.set(\"newRegisteredMobile\", newRegisteredMobile);\r",
+													"\r",
+													"// Log the value of newRegisteredMobile\r",
+													"console.log(\"newRegisteredMobile:\", newRegisteredMobile);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "\n{\n \"id\" : \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n \"msisdn\" : \"080{{random_number}}\", \n \"sessionId\" : \"1576166585:2349078266987:666:Kpa\", \n \"query\" : \"*723*<mobileno>*<amount>#\",\n \"input\" : \"*723*09159407915*100#\",\n \"sessionStart\" : true,\n \"sessionData\" : \n{\n    \"title\":\"Mr\",\n    \"firstName\" : \"{{firstName}}\",\n    \"middleName\":\"{{middleName}}\",\n    \"lastName\":\"{{lastName}}\",\n    \"birthDate\" : \"03122002\",\n    \"countryCode\" : \"NG\",\n    \"gender\": \"M\"\n   \n}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/signup/offline",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"signup",
+												"offline"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/signup/offline",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"signup",
+														"offline"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/signup/offline",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"signup",
+														"offline"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/signup/offline",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"signup",
+														"offline"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "sign Up User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\" : \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n \"msisdn\" : \"08000000000\", \n \"sessionId\" : \"1576166585:2349078266987:666:Kpa\", \n \"query\" : \"*723*<mobileno>*<amount>#\",\n \"input\" : \"*723*09159407915*100#\",\n \"sessionStart\" : true,\n \"sessionData\" : \n{\n \n}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/signup",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"signup"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/signup",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"signup"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/signup",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"signup"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/signup",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"signup"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "pin",
+					"item": [
+						{
+							"name": "update",
+							"item": [
+								{
+									"name": "up Date Transaction Pin",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var currentPin = pm.environment.get(\"currentPin\");\r",
+													"pm.variables.set(\"currentPin\", currentPin);\r",
+													"\r",
+													"\r",
+													"// Function to generate a random 4-digit PIN\r",
+													"function generateRandomPin() {\r",
+													"    return Math.floor(Math.random() * 9000) + 1000;\r",
+													"}\r",
+													"\r",
+													"// Generate random PIN values\r",
+													" \r",
+													"var pin = generateRandomPin();\r",
+													"\r",
+													"pm.environment.set(\"pin\", pin);\r",
+													"pm.environment.set(\"confirmPin\", pin);\r",
+													" console.log(pin)\r",
+													"\r",
+													"pm.environment.set(\"currentPin\",pin);\r",
+													"console.log(currentPin)\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"      pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Pin Updated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"\r",
+													"\r",
+													"pm.test(\"Content-Type is present\", function () {\r",
+													"    pm.response.to.have.header(\"Content-Type\");\r",
+													"});\r",
+													"\r",
+													" console.log(res.success)\r",
+													" \r",
+													" "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"2348074258402\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"pin\": \"{{pin}}\",\n        \"confirmPin\": \"{{confirmPin}}\",\n        \"currentPin\": \"{{currentPin}}\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/pin/update",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"pin",
+												"update"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"update"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"update"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/update",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"update"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "create",
+							"item": [
+								{
+									"name": "create Transaction Pin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"  \r",
+													"\r",
+													"pm.test(\"Status code is 201\", function () {\r",
+													"    pm.response.to.have.status(201);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Transaction PIN created successfully\", function () {\r",
+													"    pm.expect(pm.response.json().sessionData).to.equal('Your PIN has been set up successfully');\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													" "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"{{newRegisteredMobile}}\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"pin\": \"1408\",\n        \"confirmPin\": \"1408\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/pin/create",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"pin",
+												"create"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"create"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"create"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/pin/create",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"pin",
+														"create"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "validate",
+							"item": [
+								{
+									"name": "validate Pin",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"\r",
+													"pm.test(\"Pin Validated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348074258402\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"pin\": \"{{currentPin}}\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/pin/validate",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"pin",
+												"validate"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "kyc",
+					"item": [
+						{
+							"name": "consumer",
+							"item": [
+								{
+									"name": "mobile",
+									"item": [
+										{
+											"name": "verifymobile",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var res = pm.response.json()\r",
+															"\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"      pm.response.to.have.status(200);\r",
+															"});\r",
+															"\r",
+															"pm.test(\"Phonenumber verified successfully\",()=>{\r",
+															"      pm.expect(res.success).to.eql(true)\r",
+															"})"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"08000000000\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/consumers/kyc/consumer/mobile",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"consumers",
+														"kyc",
+														"consumer",
+														"mobile"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/consumers/kyc/consumer/mobile",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"consumers",
+																"kyc",
+																"consumer",
+																"mobile"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/consumers/kyc/consumer/mobile",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"consumers",
+																"kyc",
+																"consumer",
+																"mobile"
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/consumers/kyc/consumer/mobile",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"consumers",
+																"kyc",
+																"consumer",
+																"mobile"
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "exist",
+					"item": [
+						{
+							"name": "check User Exist",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"      pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"User Exist Value is True\",()=>{\r",
+											"      pm.expect(res.sessionData).to.eql({exist: true})\r",
+											"})\r",
+											"pm.test(\"Content-Type is present\", function () {\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"2348074258404\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n    }\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/exist",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"exist"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/exist",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"exist"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/exist",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"exist"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/exist",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"exist"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "cards",
+					"item": [
+						{
+							"name": "get Cards",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"      pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"User card fetched Successfully\",()=>{\r",
+											"      pm.expect(res.success).to.eql(true)\r",
+											"})\r",
+											" \r",
+											" pm.test(\"Count validation Completed\", () => {\r",
+											"    const responseBody = pm.response.json();\r",
+											"    const count = responseBody.sessionData.count;\r",
+											"\r",
+											"    // Check if count is greater than zero\r",
+											"    if (count > 0) {\r",
+											"        pm.expect(count).to.be.above(0);\r",
+											"        pm.test(\"Card retrieved Successfully\");\r",
+											"    } else {\r",
+											"        pm.expect(count).to.be.lessThanOrEqual(0);\r",
+											"        pm.test(\"No card retrieved\");\r",
+											"    }\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348124888436\",\r\n    \"sessionId\": \"1576166585:2349127319313:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"1234\",\r\n    \"sessionData\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/cards",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"cards"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/consumers/cards",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"cards"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/consumers/cards",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"cards"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/consumers/cards",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"cards"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "accounts",
+					"item": [
+						{
+							"name": "open Account",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/consumers/accounts",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"consumers",
+										"accounts"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/accounts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"accounts"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/accounts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"accounts"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/consumers/accounts",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"consumers",
+												"accounts"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "telcos",
+			"item": [
+				{
+					"name": "{telcoId}",
+					"item": [
+						{
+							"name": "data",
+							"item": [
+								{
+									"name": "get Telco Data",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"pm.test(\"Telco Data fetched succesfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Telco Data is not empty\",()=>{\r",
+													"            pm.expect(res.menu[0]).to.not.be.empty\r",
+													"})\r",
+													"\r",
+													" "
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"08000000000\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"countryCode\": \"NG\",\r\n        \"telcoId\": \"{{Mtn}}\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/data",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"data"
+											],
+											"query": [
+												{
+													"key": "countryCode",
+													"value": "NG",
+													"description": "(Required) ",
+													"disabled": true
+												},
+												{
+													"key": "telcoId",
+													"value": "628051043",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/data?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"data"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"data\": {},\n  \"code\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/data?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"data"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/data?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"data"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "airtime",
+							"item": [
+								{
+									"name": "get Telco Airtime",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"pm.test(\"Telco Airtime fetched succesfully\", () => {\r",
+													"    pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Telco Airtime is not empty\",()=>{\r",
+													"            pm.expect(res.menu[0]).to.not.be.empty\r",
+													"})"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"08000000000\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"countryCode\": \"NG\",\r\n        \"telcoId\": \"{{Glo}}\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/airtime",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"airtime"
+											],
+											"query": [
+												{
+													"key": "countryCode",
+													"value": "<string>",
+													"description": "(Required) ",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/airtime?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"airtime"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"data\": {},\n  \"code\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/airtime?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"airtime"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/telcos/:telcoId/airtime?countryCode=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														":telcoId",
+														"airtime"
+													],
+													"query": [
+														{
+															"key": "countryCode",
+															"value": "<string>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "telcoId"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "transactions",
+					"item": [
+						{
+							"name": "Airtime Recharge",
+							"item": [
+								{
+									"name": "Airtime Recharge",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var responseBody = pm.response.json();\r",
+													"// var transRef = responseBody.sessionData.transactionRef;  \r",
+													"// pm.environment.set(\"transactionRef\", transRef); \r",
+													"// console.log(transRef)\r",
+													"\r",
+													"var transRef = null;\r",
+													"\r",
+													"if (responseBody && responseBody.sessionData && responseBody.sessionData.transactionRef !== null) {\r",
+													"    transRef = responseBody.sessionData.transactionRef;\r",
+													"    pm.environment.set(\"transactionRef\", transRef);\r",
+													"}\r",
+													"\r",
+													"console.log(transRef);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var res = pm.response.json()\r",
+													"pm.test(\"Recharge Request Initiated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"2348074258402\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"customerId\": \"2349125490124\",\n        \"amount\": 100,\n        \"currencyCode\": \"NGN\",\n        \"countryCode\": \"NG\",\n        \"paymentMethod\": \"QT_ACCOUNT\",\n        \"channel\": \"MOBILE\",\n        \"transactionType\": \"AIRTIME\",\n        \"narration\": \"there is something\",\n        \"paymentItemCode\": \"{{Mtn}}\",\n        \"telcoCode\": \"{{Mtn}}\",\n        \"accountNumber\": \"{{AccountNumber}}\",\n        \"pin\": \"1908\"\n      //  \"qtAccountNumber\": \"1350008470\",\n      //  \"pin\": \"8404\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/airtime",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"airtime"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"transactionRef\": \"<uuid>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Airtime Recharge Status",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													" \r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"// pm.test(\"Recharge status validation\", function () {\r",
+													"//   var status = pm.response.json().sessionData.status;\r",
+													"  \r",
+													"//   if (status === \"SUCCESSFUL\") {\r",
+													"//     pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"//     pm.testResult.testExecutions[pm.info.iteration].result = \"Payment successful\";\r",
+													"//   } else if (status === \"PAYMENT_PENDING\") {\r",
+													"//     pm.expect(status).to.eql(\"PENDING\");\r",
+													"//      pm.test(\"Payment Pending\")\r",
+													"//   } else if (status === \"FAILED\") {\r",
+													"//     pm.expect(status).to.eql(\"FAILED\");\r",
+													"//      pm.test(\"Payment Failed\")\r",
+													"//   } else if  (status === \"FAILED\"){\r",
+													"//     pm.expect(pm.response.text()).to.include(\"Insufficient Funds\");\r",
+													"//     pm.test(\"Payment failed due to Insufficient Funds\")\r",
+													"//   }\r",
+													"// });\r",
+													"\r",
+													"pm.test(\"Airtime purchase status validation Done\", function () {\r",
+													"    var status = pm.response.json().sessionData.status;\r",
+													"    //var message = pm.response.json().sessionData.data.message;\r",
+													"\r",
+													"    if (status === \"SUCCESSFUL\") {\r",
+													"        pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"        pm.test(\"Payment Successful\");\r",
+													"    } else if (status === \"VALUE_PENDING\") {\r",
+													"        pm.expect(status).to.eql(\"VALUE_PENDING\");\r",
+													"        pm.test(\"Payment Pending\");\r",
+													"    } else if (status === \"FAILED\") {\r",
+													"        pm.expect(status).to.eql(\"FAILED\");\r",
+													"        pm.test(\"Payment Failed\");\r",
+													"        if (pm.response.text().to.include(\"Insufficient Funds\")) {\r",
+													"            pm.test(\"Payment failed due to Insufficient Funds\");\r",
+													"        }\r",
+													"    } else {\r",
+													"        pm.expect.fail(\"Unexpected status: \" + status);\r",
+													"    }\r",
+													"});\r",
+													" \r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													" "
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var transRef = pm.environment.get(\"transactionRef\");\r",
+													"pm.variables.set(\"transactionRef\", transRef);\r",
+													"console.log(transRef)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"08000000000\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"transactionRef\": \"{{transactionRef}}\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"status"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Airtime Recharge With Card",
+							"item": [
+								{
+									"name": "Airtime Recharge_Card",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var responseBody = pm.response.json();\r",
+													"// var transRef = responseBody.sessionData.transactionRef;  \r",
+													"// pm.environment.set(\"transactionRef\", transRef); \r",
+													"// console.log(transRef)\r",
+													"\r",
+													"var transRef = null;\r",
+													"\r",
+													"if (responseBody && responseBody.sessionData && responseBody.sessionData.transactionRef !== null) {\r",
+													"    transRef = responseBody.sessionData.transactionRef;\r",
+													"    pm.environment.set(\"transactionRef\", transRef);\r",
+													"}\r",
+													"\r",
+													"console.log(transRef);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var res = pm.response.json()\r",
+													"pm.test(\"Recharge Request Initiated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"2348074258402\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"customerId\": \"2349125490124\",\n        \"amount\": 100,\n        \"currencyCode\": \"NGN\",\n        \"countryCode\": \"NG\",\n        \"paymentMethod\": \"QT_ACCOUNT\",\n        \"channel\": \"MOBILE\",\n        \"transactionType\": \"AIRTIME\",\n        \"narration\": \"there is something\",\n        \"paymentItemCode\": \"{{Mtn}}\",\n        \"telcoCode\": \"{{Mtn}}\",\n        \"accountNumber\": \"{{AccountNumber}}\",\n        \"pin\": \"1408\",\n        \"cvv\": \"345\",\n        \"expiry\": \"1223\",\n        \"token\": null,\n        \"pan\": \"4000000000002503\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/airtime",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"airtime"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"transactionRef\": \"<uuid>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authData\": \"V7F7tQFEKIiyQVJaMS9LG0m8H/UILlpAmD+Jg1M=\",\n  \"channel\": \"MOBILE\",\n  \"countryCode\": \"UG\",\n  \"currencyCode\": \"USD\",\n  \"customerId\": \"<string>\",\n  \"paymentMethod\": \"CARD\",\n  \"transactionType\": \"CASH_OUT\",\n  \"customerEmail\": \"<string>\",\n  \"customerMobileNo\": \"<string>\",\n  \"customerName\": \"<string>\",\n  \"amount\": \"<long>\",\n  \"surcharge\": \"<integer>\",\n  \"requestRef\": \"<string>\",\n  \"terminalId\": \"<string>\",\n  \"accountType\": \"<string>\",\n  \"destinationAccountNo\": \"<string>\",\n  \"destinationInstitutionCode\": \"<string>\",\n  \"destinationAccountName\": \"<string>\",\n  \"destinationInstitutionName\": \"<string>\",\n  \"narration\": \"<string>\",\n  \"accountKycLevel\": \"<string>\",\n  \"payableId\": \"<string>\",\n  \"telcoId\": \"<string>\",\n  \"billerId\": \"<string>\",\n  \"metadata\": {\n    \"exercitation52\": \"<string>\"\n  },\n  \"paymentItemCode\": \"<string>\",\n  \"telcoCode\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/airtime",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"airtime"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								},
+								{
+									"name": "Airtime Recharge Status",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													" \r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"// pm.test(\"Recharge status validation\", function () {\r",
+													"//   var status = pm.response.json().sessionData.status;\r",
+													"  \r",
+													"//   if (status === \"SUCCESSFUL\") {\r",
+													"//     pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"//     pm.testResult.testExecutions[pm.info.iteration].result = \"Payment successful\";\r",
+													"//   } else if (status === \"PAYMENT_PENDING\") {\r",
+													"//     pm.expect(status).to.eql(\"PENDING\");\r",
+													"//      pm.test(\"Payment Pending\")\r",
+													"//   } else if (status === \"FAILED\") {\r",
+													"//     pm.expect(status).to.eql(\"FAILED\");\r",
+													"//      pm.test(\"Payment Failed\")\r",
+													"//   } else if  (status === \"FAILED\"){\r",
+													"//     pm.expect(pm.response.text()).to.include(\"Insufficient Funds\");\r",
+													"//     pm.test(\"Payment failed due to Insufficient Funds\")\r",
+													"//   }\r",
+													"// });\r",
+													"\r",
+													"pm.test(\"Airtime purchase status validation Done\", function () {\r",
+													"    var status = pm.response.json().sessionData.status;\r",
+													"    //var message = pm.response.json().sessionData.data.message;\r",
+													"\r",
+													"    if (status === \"SUCCESSFUL\") {\r",
+													"        pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"        pm.test(\"Payment Successful\");\r",
+													"    } else if (status === \"VALUE_PENDING\") {\r",
+													"        pm.expect(status).to.eql(\"VALUE_PENDING\");\r",
+													"        pm.test(\"Payment Pending\");\r",
+													"    } else if (status === \"FAILED\") {\r",
+													"        pm.expect(status).to.eql(\"FAILED\");\r",
+													"        pm.test(\"Payment Failed\");\r",
+													"        if (pm.response.text().to.include(\"Insufficient Funds\")) {\r",
+													"            pm.test(\"Payment failed due to Insufficient Funds\");\r",
+													"        }\r",
+													"    } else {\r",
+													"        pm.expect.fail(\"Unexpected status: \" + status);\r",
+													"    }\r",
+													"});\r",
+													" \r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													" "
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var transRef = pm.environment.get(\"transactionRef\");\r",
+													"pm.variables.set(\"transactionRef\", transRef);\r",
+													"console.log(transRef)"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"08000000000\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"transactionRef\": \"{{transactionRef}}\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"status"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Data Recharge",
+							"item": [
+								{
+									"name": "Data Recharge",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var responseBody = pm.response.json();\r",
+													"// var transRef = responseBody.sessionData.transactionRef;  \r",
+													"// pm.environment.set(\"transactionRef\", transRef); \r",
+													"// console.log(transRef)\r",
+													"\r",
+													"var transRef = null;\r",
+													"\r",
+													"if (responseBody && responseBody.sessionData && responseBody.sessionData.transactionRef !== null) {\r",
+													"    transRef = responseBody.sessionData.transactionRef;\r",
+													"    pm.environment.set(\"transactionRef\", transRef);\r",
+													"}\r",
+													"\r",
+													"console.log(transRef);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var res = pm.response.json()\r",
+													"pm.test(\"Recharge Request Initiated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348074258402\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"customerId\": \"2349125490124\",\r\n        \"amount\": 150000,\r\n        \"currencyCode\": \"NGN\",\r\n        \"countryCode\": \"NG\",\r\n        \"paymentMethod\": \"QT_ACCOUNT\",\r\n        \"transactionType\": \"DATA\",\r\n        \"narration\": \"there is something\",\r\n        \"paymentItemCode\": \"{{Mtn}}\",\r\n        \"telcoCode\": \"14309\",\r\n        \"accountNumber\": \"{{AccountNumber}}\",\r\n        \"pin\": \"1905\"\r\n       //  \"qtAccountNumber\": \"1350008470\",\r\n       //  \"pin\": \"8404\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/airtime",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"airtime"
+											],
+											"query": [
+												{
+													"key": "qtAccountNumber",
+													"value": "{{AccountNumber}}",
+													"disabled": true
+												},
+												{
+													"key": "pin",
+													"value": "{{newPin}}",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Data Recharge Status",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var transRef = pm.environment.get(\"transactionRef\");\r",
+													"pm.variables.set(\"transactionRef\", transRef);\r",
+													"console.log(transRef)"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													" \r",
+													" pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// if (res.sessionData.status === \"SUCCESSFUL\"){\r",
+													"// pm.test(\"Recharge is Successful\",()=>{\r",
+													"//       pm.expect(res.sessionData.status).to.eql(\"SUCCESSFUL\")\r",
+													"// })\r",
+													"// }\r",
+													"// else if (res.sessionData.status === \"FAILED\"){\r",
+													"//   pm.test(\"Payment Failed\",()=>{\r",
+													"//       pm.expect(res.sessionData.status).to.eql(\"FAILED\")\r",
+													"// })  \r",
+													"// }\r",
+													"\r",
+													"  \r",
+													"  pm.test(\"Data purchase status validation Done\", function () {\r",
+													"    var status = pm.response.json().sessionData.status;\r",
+													"  \r",
+													"\r",
+													"    if (status === \"SUCCESSFUL\") {\r",
+													"        pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"        pm.test(\"Payment Successful\");\r",
+													"    } else if (status === \"VALUE_PENDING\") {\r",
+													"        pm.expect(status).to.eql(\"VALUE_PENDING\");\r",
+													"        pm.test(\"Payment Pending\");\r",
+													"    } else if (status === \"FAILED\") {\r",
+													"        pm.expect(status).to.eql(\"FAILED\");\r",
+													"        pm.test(\"Payment Failed\");\r",
+													"        if (pm.response.text().to.include(\"Insufficient Funds\")) {\r",
+													"            pm.test(\"Payment failed due to Insufficient Funds\");\r",
+													"        }\r",
+													"    } else {\r",
+													"        pm.expect.fail(\"Unexpected status: \" + status);\r",
+													"    }\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"08000000000\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"transactionRef\": \"{{transactionRef}}\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"status"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"transactionRef\": \"<uuid>\",\n  \"status\": \"VALUE_PENDING\",\n  \"paymentStatus\": \"THREE_DS_REQUIRED\",\n  \"deliveryStatus\": \"SUCCESSFUL\",\n  \"data\": {\n    \"incididuntc\": \"<string>\",\n    \"sit_3\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Data Recharge With Card",
+							"item": [
+								{
+									"name": "Data Recharge",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var responseBody = pm.response.json();\r",
+													"// var transRef = responseBody.sessionData.transactionRef;  \r",
+													"// pm.environment.set(\"transactionRef\", transRef); \r",
+													"// console.log(transRef)\r",
+													"\r",
+													"var transRef = null;\r",
+													"\r",
+													"if (responseBody && responseBody.sessionData && responseBody.sessionData.transactionRef !== null) {\r",
+													"    transRef = responseBody.sessionData.transactionRef;\r",
+													"    pm.environment.set(\"transactionRef\", transRef);\r",
+													"}\r",
+													"\r",
+													"console.log(transRef);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var res = pm.response.json()\r",
+													"pm.test(\"Recharge Request Initiated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"2348074258402\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"customerId\": \"2349125490124\",\r\n        \"amount\": 150000,\r\n        \"currencyCode\": \"NGN\",\r\n        \"countryCode\": \"NG\",\r\n        \"paymentMethod\": \"CARD\",\r\n        \"transactionType\": \"DATA\",\r\n        \"narration\": \"there is something\",\r\n        \"paymentItemCode\": \"{{Mtn}}\",\r\n        \"telcoCode\": \"14309\",\r\n        \"accountNumber\": \"{{AccountNumber}}\",\r\n        \"pin\": \"1408\",\r\n        \"cvv\": \"345\",\r\n        \"expiry\": \"1223\",\r\n        \"token\": null,\r\n        \"pan\": \"4000000000002503\"\r\n    }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/airtime",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"airtime"
+											],
+											"query": [
+												{
+													"key": "qtAccountNumber",
+													"value": "{{AccountNumber}}",
+													"disabled": true
+												},
+												{
+													"key": "pin",
+													"value": "{{newPin}}",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Data Recharge Status",
+									"event": [
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													"var transRef = pm.environment.get(\"transactionRef\");\r",
+													"pm.variables.set(\"transactionRef\", transRef);\r",
+													"console.log(transRef)"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													" \r",
+													" pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"// if (res.sessionData.status === \"SUCCESSFUL\"){\r",
+													"// pm.test(\"Recharge is Successful\",()=>{\r",
+													"//       pm.expect(res.sessionData.status).to.eql(\"SUCCESSFUL\")\r",
+													"// })\r",
+													"// }\r",
+													"// else if (res.sessionData.status === \"FAILED\"){\r",
+													"//   pm.test(\"Payment Failed\",()=>{\r",
+													"//       pm.expect(res.sessionData.status).to.eql(\"FAILED\")\r",
+													"// })  \r",
+													"// }\r",
+													"\r",
+													"  \r",
+													"  pm.test(\"Data purchase status validation Done\", function () {\r",
+													"    var status = pm.response.json().sessionData.status;\r",
+													"  \r",
+													"\r",
+													"    if (status === \"SUCCESSFUL\") {\r",
+													"        pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"        pm.test(\"Payment Successful\");\r",
+													"    } else if (status === \"VALUE_PENDING\") {\r",
+													"        pm.expect(status).to.eql(\"VALUE_PENDING\");\r",
+													"        pm.test(\"Payment Pending\");\r",
+													"    } else if (status === \"FAILED\") {\r",
+													"        pm.expect(status).to.eql(\"FAILED\");\r",
+													"        pm.test(\"Payment Failed\");\r",
+													"        if (pm.response.text().to.include(\"Insufficient Funds\")) {\r",
+													"            pm.test(\"Payment failed due to Insufficient Funds\");\r",
+													"        }\r",
+													"    } else {\r",
+													"        pm.expect.fail(\"Unexpected status: \" + status);\r",
+													"    }\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\": \"08000000000\",\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\n    \"query\": \"*723*<mobileno>*<amount>#\",\n    \"input\": \"*723*09159407915*100#\",\n    \"sessionStart\": true,\n    \"sessionData\": {\n        \"transactionRef\": \"{{transactionRef}}\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/telcos/transactions/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"transactions",
+												"status"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"transactionRef\": \"<uuid>\",\n  \"status\": \"VALUE_PENDING\",\n  \"paymentStatus\": \"THREE_DS_REQUIRED\",\n  \"deliveryStatus\": \"SUCCESSFUL\",\n  \"data\": {\n    \"incididuntc\": \"<string>\",\n    \"sit_3\": \"<string>\"\n  }\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"transactionRef\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/telcos/transactions/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"telcos",
+														"transactions",
+														"status"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "telcoItems",
+					"item": [
+						{
+							"name": "get Telcos",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"      pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"\r",
+											"pm.test(\"Telco Items fetched succesfully\",()=>{\r",
+											"      pm.expect(res.success).to.eql(true)\r",
+											"})\r",
+											"\r",
+											"if (res.sessionData.MTN.name === \"MTN\" && res.sessionData.MTN.code === \"628051043\"  ) {\r",
+											"    pm.test(\"Mtn Data fetched succesfully \")\r",
+											"} else {\r",
+											"  console.log(\"Unable to fetch Mtn telco\");\r",
+											"}\r",
+											"\r",
+											"if (res.sessionData.Airtel.name === \"Airtel\" && res.sessionData.Airtel.code === \"6280510420\"  ) {\r",
+											"    pm.test(\"Airtel Data fetched succesfully \")\r",
+											"} else {\r",
+											"  console.log(\"Unable to fetch Airtel telco\");\r",
+											"}\r",
+											"\r",
+											"if (res.sessionData.Glo.name === \"Glo\" && res.sessionData.Glo.code === \"628051045\"  ) {\r",
+											"    pm.test(\"Glo Data fetched succesfully \")\r",
+											"} else {\r",
+											"  console.log(\"Unable to fetch Glo telco\");\r",
+											"}\r",
+											"\r",
+											" pm.test(\"9mobile Data fetched succesfully \", function () {\r",
+											"     pm.expect(pm.response.text()).to.include(\"9Mobile\");\r",
+											" });"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n    \"msisdn\": \"08000000000\",\r\n    \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n    \"query\": \"*723*<mobileno>*<amount>#\",\r\n    \"input\": \"*723*09159407915*100#\",\r\n    \"sessionStart\": true,\r\n    \"sessionData\": {\r\n        \"countryCode\": \"NG\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/telcos/telcoItems",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"telcos",
+										"telcoItems"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/telcos/telcoItems?countryCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"telcoItems"
+											],
+											"query": [
+												{
+													"key": "countryCode",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"data\": {},\n  \"code\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/telcos/telcoItems?countryCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"telcoItems"
+											],
+											"query": [
+												{
+													"key": "countryCode",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/telcos/telcoItems?countryCode=<string>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"telcos",
+												"telcoItems"
+											],
+											"query": [
+												{
+													"key": "countryCode",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "transfer",
+			"item": [
+				{
+					"name": "qtaccount Transfer",
+					"item": [
+						{
+							"name": "intitialize",
+							"item": [
+								{
+									"name": "qt Account Complete Transfer",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var responseBody = pm.response.json();\r",
+													"var transRef = null;\r",
+													"\r",
+													"if (responseBody && responseBody.sessionData && responseBody.sessionData.transactionRef !== null) {\r",
+													"    transRef = responseBody.sessionData.transactionRef;\r",
+													"    pm.environment.set(\"transactionRef\", transRef);\r",
+													"}\r",
+													"\r",
+													"console.log(transRef);\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"var res = pm.response.json()\r",
+													"pm.test(\"Transfer Request Initiated Successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"// var responseBody = pm.response.json();\r",
+													"// var transRef = responseBody.sessionData.transactionRef;  \r",
+													"\r",
+													"// pm.environment.set(\"transactionRef\", transRef); \r",
+													"// console.log(transRef)\r",
+													"\r",
+													"// pm.test(\"Status code is 200\", function () {\r",
+													"//       pm.response.to.have.status(200);\r",
+													"// });\r",
+													"\r",
+													"// var res = pm.response.json()\r",
+													"// pm.test(\"Transfer Request Initiated Successfully\",()=>{\r",
+													"//       pm.expect(res.success).to.eql(true)\r",
+													"// })\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\" : \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\" : \"2348074258402\", \n    \"sessionId\" : \"1576166585:2348144339561:666:Kpa\", \n    \"query\" : \"*723*<mobileno>*<amount>#\",\n    \"input\" : \"1234\",\n    \"sessionData\" : {\n        \"customerId\": \"1350008463\", \n        \"amount\": 50000,\n        \"surcharge\": 0, \n        \"currencyCode\": \"NGN\", \n        \"countryCode\": \"NG\",\n        \"qtAccountPin\":\"1908\",\n        \"paymentMethod\":\"QT_ACCOUNT\",\n        \"transactionType\":\"TRANSFER\",\n        \"destinationInstitutionCode\": \"HAK\",\n        \"destinationInstitutionName\": \"HAK\",\n        \"channel\": \"MOBILE\",\n        \"narration\": \"Sent By Abiodun Again and Again\",\n        \"accountNumber\": \"{{AccountNumber}}\"\n  }\n}\n\n\n///\n\n\n// {\n//     \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n//     \"msisdn\": \"2348178368723\",\n//     \"sessionId\": \"1576166585:2348178368723:666:Kpa\",\n//     \"query\": \"*723*<mobileno>*<amount>#\",\n//     \"input\": \"1234\",\n//     \"sessionData\": {\n//         \"customerId\": \"0037320662\",\n//         \"amount\": 5000,\n//         \"surcharge\": 0,\n//         \"currencyCode\": \"NGN\",\n//         \"countryCode\": \"NG\",\n//         \"qtAccountPin\": \"8000\",\n//         \"paymentMethod\": \"QT_ACCOUNT\",\n//         \"transactionType\": \"TRANSFER\",\n//         \"destinationInstitutionCode\": \"HAK\",\n//         \"destinationInstitutionName\": \"HAK\",\n//         \"channel\": \"MOBILE\",\n//         \"accountNumber\": \"1350009501\",\n//         \"narration\": \"Sent By Abiodun Again and Again\"\n//     }\n// }",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/transfer/qtaccount/intitialize",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"qtaccount",
+												"intitialize"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"countryCode\": \"NG\",\n    \"currencyCode\": \"NGN\",\n    \"customerId\": \"<string>\",\n    \"qtAccountPin\": \"<string>\",\n    \"amount\": \"<long>\",\n    \"surcharge\": \"<integer>\",\n    \"destinationInstitutionCode\": \"<string>\",\n    \"destinationInstitutionName\": \"<string>\",\n    \"narration\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/intitialize",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"intitialize"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"errorMessage\": \"<string>\",\n  \"menuDestination\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"countryCode\": \"NG\",\n    \"currencyCode\": \"NGN\",\n    \"customerId\": \"<string>\",\n    \"qtAccountPin\": \"<string>\",\n    \"amount\": \"<long>\",\n    \"surcharge\": \"<integer>\",\n    \"destinationInstitutionCode\": \"<string>\",\n    \"destinationInstitutionName\": \"<string>\",\n    \"narration\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/intitialize",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"intitialize"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"countryCode\": \"NG\",\n    \"currencyCode\": \"NGN\",\n    \"customerId\": \"<string>\",\n    \"qtAccountPin\": \"<string>\",\n    \"amount\": \"<long>\",\n    \"surcharge\": \"<integer>\",\n    \"destinationInstitutionCode\": \"<string>\",\n    \"destinationInstitutionName\": \"<string>\",\n    \"narration\": \"<string>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/intitialize",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"intitialize"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"errorMessage\": \"<string>\",\n  \"menuDestination\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "status",
+							"item": [
+								{
+									"name": "check Transaction Status",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"//var res = pm.response.json()\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Transfer status validation Done\", function () {\r",
+													"    var status = pm.response.json().sessionData.status;\r",
+													"    \r",
+													"\r",
+													"    if (status === \"SUCCESSFUL\") {\r",
+													"        pm.expect(status).to.eql(\"SUCCESSFUL\");\r",
+													"        pm.test(\"Payment Successful\");\r",
+													"    } else if (status === \"VALUE_PENDING\") {\r",
+													"        pm.expect(status).to.eql(\"VALUE_PENDING\");\r",
+													"        pm.test(\"Payment Pending\");\r",
+													"    } else if (status === \"FAILED\") {\r",
+													"        pm.expect(status).to.eql(\"FAILED\");\r",
+													"        pm.test(\"Payment Failed\");\r",
+													"        if (pm.response.text().to.include(\"Insufficient Funds\")) {\r",
+													"            pm.test(\"Payment failed due to Insufficient Funds\");\r",
+													"        }\r",
+													"    } else {\r",
+													"        pm.expect.fail(\"Unexpected status: \" + status);\r",
+													"    }\r",
+													"});\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\" : \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\n    \"msisdn\" : \"2348074258402\", \n    \"sessionId\" : \"1576166585:2348144339561:666:Kpa\", \n    \"query\" : \"*723*<mobileno>*<amount>#\",\n    \"input\" : \"1234\",\n    \"sessionData\" : {\n        \"transactionRef\": \"{{transactionRef}}\"\n    }\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/transfer/qtaccount/status",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"qtaccount",
+												"status"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"transactionRef\": \"<uuid>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"status"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"errorMessage\": \"<string>\",\n  \"menuDestination\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"transactionRef\": \"<uuid>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"status"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"input\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"sessionData\": {\n    \"transactionRef\": \"<uuid>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/qtaccount/status",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"qtaccount",
+														"status"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"message\": \"<string>\",\n  \"destination\": \"<string>\",\n  \"success\": \"<boolean>\",\n  \"error\": \"<string>\",\n  \"errorMessage\": \"<string>\",\n  \"menuDestination\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "banks",
+					"item": [
+						{
+							"name": "{searchCriteria}",
+							"item": [
+								{
+									"name": "Bank List searchCriteria",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"pm.test(\"List of banks fetched succesfully\", () => {\r",
+													"    pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Data is not empty\", () => {\r",
+													"    pm.expect(responseBody.data).to.not.be.null;\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Uba Bank fetched successfully\", function () {\r",
+													"    pm.expect(pm.response.text()).to.include(\"UBA\");\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n  \"msisdn\": \"08000000000\",\r\n  \"query\": \"*723*<mobileno>*<amount>#\",\r\n  \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n  \"input\": \"*723*09159407915*100#\",\r\n  \"sessionStart\": true,\r\n  \"sessionData\": {\r\n     \"page\": \"1\",\r\n    \"perPage\": \"5\",\r\n    \"searchCriteria\": \"UBA\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/transfer/institutions",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"institutions"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/transfer/banks/:searchCriteria",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"banks",
+														":searchCriteria"
+													],
+													"variable": [
+														{
+															"key": "searchCriteria"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"data\": [\n    {\n      \"institutionId\": \"<string>\",\n      \"institutionCode\": \"<string>\",\n      \"institutionName\": \"<string>\"\n    },\n    {\n      \"institutionId\": \"<string>\",\n      \"institutionCode\": \"<string>\",\n      \"institutionName\": \"<string>\"\n    }\n  ],\n  \"perPage\": \"<integer>\",\n  \"page\": \"<integer>\",\n  \"total\": \"<long>\",\n  \"hasMorePage\": \"<boolean>\",\n  \"code\": \"<string>\",\n  \"description\": \"<string>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/transfer/banks/:searchCriteria",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"banks",
+														":searchCriteria"
+													],
+													"variable": [
+														{
+															"key": "searchCriteria"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/transfer/banks/:searchCriteria",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"banks",
+														":searchCriteria"
+													],
+													"variable": [
+														{
+															"key": "searchCriteria"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "bank List",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var res = pm.response.json()\r",
+											"pm.test(\"List of banks fetched succesfully\", () => {\r",
+											"    pm.expect(res.success).to.eql(true)\r",
+											"})\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Data is not empty\", () => {\r",
+											"    pm.expect(responseBody.data).to.not.be.null;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"List of banks are been returned\", function () {\r",
+											"    pm.expect(pm.response.text()).to.include(\"List of Banks\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n  \"msisdn\": \"08000000000\",\r\n  \"query\": \"*723*<mobileno>*<amount>#\",\r\n  \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n  \"input\": \"*723*09159407915*100#\",\r\n  \"sessionStart\": true,\r\n  \"sessionData\": {\r\n     \"page\": \"1\",\r\n    \"perPage\": \"100\",\r\n    \"searchCriteria\": \"Quickteller\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/transfer/institutions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"transfer",
+										"institutions"
+									],
+									"query": [
+										{
+											"key": "perPage",
+											"value": "5",
+											"description": "(Required) ",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "(Required) ",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/transfer/banks?perPage=<integer>&page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"banks"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/transfer/banks?perPage=<integer>&page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"banks"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/transfer/banks?perPage=<integer>&page=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"banks"
+											],
+											"query": [
+												{
+													"key": "perPage",
+													"value": "<integer>",
+													"description": "(Required) "
+												},
+												{
+													"key": "page",
+													"value": "<integer>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "account",
+					"item": [
+						{
+							"name": "inquiry",
+							"item": [
+								{
+									"name": "name",
+									"item": [
+										{
+											"name": "qt Account Name Inquiry",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															"var res = pm.response.json()\r",
+															"pm.test(\"Account balance checked successfully\",()=>{\r",
+															"      pm.expect(res.code).to.eql(\"OK\")\r",
+															"})\r",
+															"pm.test(\"Status code is 200\", function () {\r",
+															"      pm.response.to.have.status(200);\r",
+															"});"
+														],
+														"type": "text/javascript"
+													}
+												}
+											],
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "*/*"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n  \"msisdn\": \"2348074258402\",\r\n  \"query\": \"*723*<mobileno>*<amount>#\",\r\n  \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n  \"input\": \"*723*09159407915*100#\",\r\n  \"sessionStart\": true,\r\n  \"sessionData\": {\r\n    \"institutionCode\": \"HAK\",\r\n    \"accountNo\": \"{{AccountNumber}}\",\r\n    \"currencyCode\": \"NGN\"\r\n  }\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/transfer/account/name/inquiry",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"transfer",
+														"account",
+														"name",
+														"inquiry"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "OK",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/transfer/account/inquiry/:QtAccountNo",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"transfer",
+																"account",
+																"inquiry",
+																":QtAccountNo"
+															],
+															"variable": [
+																{
+																	"key": "QtAccountNo"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"data\": {\n    \"accountName\": \"<string>\",\n    \"accountNo\": \"<string>\",\n    \"iban\": \"<string>\",\n    \"currency\": \"<string>\",\n    \"accountId\": \"<string>\",\n    \"productId\": \"<string>\"\n  }\n}"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/transfer/account/inquiry/:QtAccountNo",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"transfer",
+																"account",
+																"inquiry",
+																":QtAccountNo"
+															],
+															"variable": [
+																{
+																	"key": "QtAccountNo"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+												},
+												{
+													"name": "Internal Server Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/transfer/account/inquiry/:QtAccountNo",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"transfer",
+																"account",
+																"inquiry",
+																":QtAccountNo"
+															],
+															"variable": [
+																{
+																	"key": "QtAccountNo"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "*/*"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "balance",
+							"item": [
+								{
+									"name": "account Balance Enquiry",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var res = pm.response.json()\r",
+													"pm.test(\"Account balance checked successfully\",()=>{\r",
+													"      pm.expect(res.success).to.eql(true)\r",
+													"})\r",
+													"pm.test(\"Status code is 200\", function () {\r",
+													"      pm.response.to.have.status(200);\r",
+													"});\r",
+													"\r",
+													"pm.test(\"Account has sufficient balance\", function () {\r",
+													"  var availableBalance = pm.response.json().sessionData.availableBalance.toString();\r",
+													"  if (availableBalance.length > 1) {\r",
+													"    pm.expect(availableBalance).to.have.lengthOf.above(1);\r",
+													"  } else {\r",
+													"    pm.expect.fail(\"Insufficient available balance\");\r",
+													"  }\r",
+													"}); \r",
+													"\r",
+													" \r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"5f088b99-f337-4f30-a7c1-68d5cb2549dd\",\r\n  \"msisdn\": \"08000000000\",\r\n  \"query\": \"*723*<mobileno>*<amount>#\",\r\n  \"sessionId\": \"1576166585:2349078266987:666:Kpa\",\r\n  \"input\": \"*723*09159407915*100#\",\r\n  \"sessionStart\": true,\r\n  \"sessionData\": {\r\n    \"institutionCode\": \"HAK\",\r\n    \"accountNo\": \"{{AccountNumber}}\",\r\n    \"currencyCode\": \"NGN\"\r\n  }\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/transfer/account/balance/inquiry",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"transfer",
+												"account",
+												"balance",
+												"inquiry"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "billers",
+			"item": [
+				{
+					"name": "category",
+					"item": [
+						{
+							"name": "categoryid",
+							"item": [
+								{
+									"name": "get Billers By Category Id",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/billers/category/categoryid",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"billers",
+												"category",
+												"categoryid"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/category/categoryid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"category",
+														"categoryid"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/category/categoryid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"category",
+														"categoryid"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/category/categoryid",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"category",
+														"categoryid"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "billercategories",
+					"item": [
+						{
+							"name": "get Biller Categories",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "*/*"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/billers/billercategories",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"billers",
+										"billercategories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/billers/billercategories",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"billers",
+												"billercategories"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/billers/billercategories",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"billers",
+												"billercategories"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/billers/billercategories",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"billers",
+												"billercategories"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "*/*"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "biller",
+					"item": [
+						{
+							"name": "billeritems",
+							"item": [
+								{
+									"name": "get Biller Items",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "*/*"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/billers/biller/billeritems",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"billers",
+												"biller",
+												"billeritems"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/biller/billeritems",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"biller",
+														"billeritems"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										},
+										{
+											"name": "Bad Request",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/biller/billeritems",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"biller",
+														"billeritems"
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"code\": \"<string>\",\n  \"description\": \"<string>\",\n  \"errors\": [\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    },\n    {\n      \"fieldName\": \"<string>\",\n      \"message\": \"<string>\"\n    }\n  ]\n}"
+										},
+										{
+											"name": "Internal Server Error",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"id\": \"<string>\",\n  \"msisdn\": \"<string>\",\n  \"query\": \"<string>\",\n  \"sessionId\": \"<string>\",\n  \"sessionStart\": \"<boolean>\",\n  \"input\": \"<string>\",\n  \"sessionData\": {}\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/billers/biller/billeritems",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"billers",
+														"biller",
+														"billeritems"
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "*/*"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"text\": \"<string>\",\n  \"callbackUrl\": \"<string>\",\n  \"redirectTo\": \"<string>\",\n  \"sessionData\": {},\n  \"sessionEnd\": \"<boolean>\"\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://quickteller-test-sc-ussd-connector-service.azuremicroservices.io/api/v1"
+		}
+	]
+}
